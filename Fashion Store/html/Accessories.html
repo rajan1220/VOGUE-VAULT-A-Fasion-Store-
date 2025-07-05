@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessories Collection | VogueVault</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a1a;
+      --secondary: #f5f5f5;
+      --accent: #e8c4a2;
+      --accent-dark: #d4a373;
+      --light: #ffffff;
+      --dark: #0a0a0a;
+      --text: #333333;
+      --text-light: #777777;
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--text);
+      background-color: var(--light);
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding-top: 70px;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Marcellus', serif;
+      letter-spacing: 0.5px;
+    }
+
+    /* Modern Minimalist Navbar */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary) !important;
+      letter-spacing: 1px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      padding: 5px 0;
+    }
+
+    .logo-text {
+      font-family: 'Marcellus', serif;
+      letter-spacing: 3px;
+    }
+
+    .logo-text-alt {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 8px;
+      margin-left: 2px;
+      color: var(--text-light);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text) !important;
+      margin: 0 15px;
+      padding: 8px 0 !important;
+      position: relative;
+      transition: var(--transition);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Search and Action Icons */
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .search-container {
+      position: relative;
+    }
+
+    .search-toggle {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 5px;
+    }
+
+    .search-toggle:hover {
+      color: var(--primary);
+    }
+
+    .search-expand {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%) scaleX(0);
+      transform-origin: right;
+      width: 250px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      padding: 5px 15px;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .search-container.active .search-expand {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .search-input {
+      border: none;
+      padding: 8px 15px;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .search-input:focus {
+      outline: none;
+    }
+
+    .search-close {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .action-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .action-icon {
+      color: var(--text);
+      font-size: 16px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .action-icon:hover {
+      color: var(--primary);
+    }
+
+    .icon-badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background-color: var(--accent);
+      color: var(--primary);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    /* Animated Hamburger Icon */
+    .navbar-toggler {
+      border: none;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar-toggler span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        padding: 20px 0;
+        background: white;
+        margin-top: 15px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      .navbar-actions {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        justify-content: center;
+      }
+      
+      .search-expand {
+        position: static;
+        transform: none;
+        opacity: 1;
+        width: 100%;
+        margin-top: 15px;
+        pointer-events: all;
+        box-shadow: none;
+      }
+      
+      .search-container.active .search-expand {
+        transform: none;
+      }
+      
+      .nav-link {
+        margin: 0;
+        padding: 10px 0 !important;
+      }
+    }
+
+    /* Accessories Hero Section */
+    .accessories-hero {
+      height: 70vh;
+      background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      color: white;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .accessories-hero-content {
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    .accessories-hero-title {
+      font-size: 72px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .accessories-hero-subtitle {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      font-weight: 300;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn-explore {
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: none;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    
+    .btn-explore:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    /* Accessories Categories */
+    .accessories-categories {
+      margin-bottom: 80px;
+    }
+    
+    .category-card-lg {
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 30px;
+      transition: var(--transition);
+    }
+    
+    .category-card-lg:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    
+    .category-img-lg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .category-card-lg:hover .category-img-lg {
+      transform: scale(1.03);
+    }
+    
+    .category-overlay-lg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+      color: white;
+    }
+    
+    .category-title-lg {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    .category-desc {
+      font-size: 16px;
+      margin-bottom: 20px;
+      max-width: 400px;
+    }
+    
+    /* Filter Section */
+    .filter-section {
+      background-color: var(--secondary);
+      padding: 30px 0;
+      margin-bottom: 60px;
+    }
+    
+    .filter-group {
+      margin-bottom: 20px;
+    }
+    
+    .filter-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+    }
+    
+    .filter-options {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .filter-options li {
+      margin-bottom: 8px;
+    }
+    
+    .filter-options a {
+      color: var(--text);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 15px;
+    }
+    
+    .filter-options a:hover, .filter-options a.active {
+      color: var(--accent-dark);
+    }
+    
+    .filter-options a.active {
+      font-weight: 500;
+    }
+    
+    .filter-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+    
+    .filter-btn:hover {
+      background-color: var(--accent);
+      color: var(--primary);
+    }
+    
+    /* Product Grid */
+    .product-grid-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .sort-select {
+      border: 1px solid #ddd;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    
+    /* Product Cards */
+    .product-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+      transition: var(--transition);
+      margin-bottom: 30px;
+      background-color: white;
+      position: relative;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+    
+    .product-img-container {
+      overflow: hidden;
+      position: relative;
+      background-color: #f9f9f9;
+    }
+    
+    .product-img {
+      height: 350px;
+      width: 100%;
+      object-fit: contain;
+      transition: var(--transition);
+      padding: 20px;
+    }
+    
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2;
+    }
+    
+    .product-body {
+      padding: 22px;
+      position: relative;
+    }
+    
+    .product-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: var(--primary);
+    }
+    
+    .product-category {
+      color: var(--text-light);
+      font-size: 13px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    
+    .product-price {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 18px;
+    }
+    
+    .product-old-price {
+      text-decoration: line-through;
+      color: var(--text-light);
+      font-size: 14px;
+      margin-left: 8px;
+    }
+    
+    .product-actions {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: var(--transition);
+    }
+    
+    .product-card:hover .product-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      transition: var(--transition);
+      border: none;
+    }
+    
+    .action-btn:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Featured Collections */
+    .featured-collections {
+      margin: 80px 0;
+    }
+    
+    .collection-card-sm {
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+      transition: var(--transition);
+    }
+    
+    .collection-card-sm:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+    
+    .collection-img-sm {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .collection-card-sm:hover .collection-img-sm {
+      transform: scale(1.05);
+    }
+    
+    .collection-overlay-sm {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 70%);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+    
+    .collection-title-sm {
+      color: white;
+      font-weight: 400;
+      font-size: 18px;
+      transition: var(--transition);
+    }
+    
+    .collection-card-sm:hover .collection-title-sm {
+      transform: translateY(-5px);
+    }
+    
+    /* Newsletter */
+    .newsletter-section {
+      background-color: var(--primary);
+      color: white;
+      padding: 80px 0;
+      margin: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .newsletter-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .newsletter-section::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .newsletter-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .newsletter-title {
+      font-size: 36px;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+    
+    .newsletter-subtitle {
+      opacity: 0.8;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 15px 25px;
+      border: none;
+      font-size: 15px;
+    }
+    
+    .newsletter-input:focus {
+      outline: none;
+    }
+    
+    .newsletter-btn {
+      padding: 15px 30px;
+      background-color: var(--accent);
+      color: var(--primary);
+      border: none;
+      font-weight: 600;
+      transition: var(--transition);
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    
+    .newsletter-btn:hover {
+      background-color: var(--accent-dark);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 80px 0 30px;
+      position: relative;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    }
+    
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .footer-logo::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-about {
+      margin-bottom: 25px;
+      opacity: 0.7;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    
+    .footer-social {
+      display: flex;
+      margin-top: 25px;
+      gap: 12px;
+    }
+    
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--accent);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-heading {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 15px;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+    
+    .footer-contact p {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+      font-size: 15px;
+    }
+    
+    .footer-contact i {
+      margin-right: 12px;
+      color: var(--accent);
+      font-size: 16px;
+      min-width: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1199px) {
+      .accessories-hero-title {
+        font-size: 60px;
+      }
+      
+      .category-card-lg {
+        height: 350px;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .accessories-hero-title {
+        font-size: 48px;
+      }
+      
+      .product-img {
+        height: 300px;
+      }
+      
+      .category-card-lg {
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .accessories-hero {
+        height: 60vh;
+        margin-bottom: 40px;
+      }
+      
+      .accessories-hero-title {
+        font-size: 36px;
+      }
+      
+      .accessories-hero-subtitle {
+        font-size: 16px;
+      }
+      
+      .product-img {
+        height: 250px;
+      }
+      
+      .newsletter-title {
+        font-size: 28px;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+        border-radius: 12px;
+      }
+      
+      .newsletter-input {
+        border-radius: 12px 12px 0 0;
+      }
+      
+      .newsletter-btn {
+        border-radius: 0 0 12px 12px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .accessories-hero-title {
+        font-size: 32px;
+      }
+      
+      .product-actions {
+        opacity: 1;
+        transform: translateY(0);
+        position: static;
+        margin-top: 15px;
+        justify-content: flex-start;
+      }
+      
+      .product-grid-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Modern Minimalist Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <!-- Logo with modern typography -->
+      <a class="navbar-brand" href="#">
+        <span class="logo-text">VOGUE</span>
+        <span class="logo-text-alt">VAULT</span>
+      </a>
+      
+      <!-- Mobile Toggle with animated hamburger -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Centered Navigation Links - No dropdowns -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Men.html">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Women.html">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/kids.html">Kids</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/html/Accessories.html">Accessories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Collections.html">Collections</a>
+          </li>
+        </ul>
+        
+        <!-- Right-aligned Icons with minimalist design -->
+        <div class="navbar-actions">
+          <div class="search-container">
+            <button class="search-toggle">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-expand">
+              <input type="text" placeholder="Search VogueVault..." class="search-input">
+              <button class="search-close">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="action-icons">
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Account">
+              <i class="far fa-user"></i>
+            </a>
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wishlist">
+              <i class="far fa-heart"></i>
+              <span class="icon-badge">4</span>
+            </a>
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cart">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="icon-badge">2</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Accessories Hero Section -->
+  <section class="accessories-hero">
+    <div class="container">
+      <div class="accessories-hero-content">
+        <h1 class="accessories-hero-title">Accessories</h1>
+        <p class="accessories-hero-subtitle">Elevate every look with our curated collection of statement accessories</p>
+        <button class="btn btn-explore">Shop Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accessories Categories -->
+  <section class="container accessories-categories">
+    <div class="row">
+      <div class="col-md-6">
+        <a href="#" class="category-card-lg">
+          <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="category-img-lg" alt="Bags">
+          <div class="category-overlay-lg">
+            <h3 class="category-title-lg">Bags</h3>
+            <p class="category-desc">From totes to clutches, find your perfect companion</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <a href="#" class="category-card-lg">
+          <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="category-img-lg" alt="Jewelry">
+          <div class="category-overlay-lg">
+            <h3 class="category-title-lg">Jewelry</h3>
+            <p class="category-desc">Timeless pieces to complement your style</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="filter-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4">
+          <div class="filter-group">
+            <h4 class="filter-title">Categories</h4>
+            <ul class="filter-options">
+              <li><a href="#" class="active">All Accessories</a></li>
+              <li><a href="#">Bags</a></li>
+              <li><a href="#">Jewelry</a></li>
+              <li><a href="#">Watches</a></li>
+              <li><a href="#">Sunglasses</a></li>
+              <li><a href="#">Scarves</a></li>
+              <li><a href="#">Hats</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="filter-group">
+            <h4 class="filter-title">Material</h4>
+            <ul class="filter-options">
+              <li><a href="#">Leather</a></li>
+              <li><a href="#">Metal</a></li>
+              <li><a href="#">Fabric</a></li>
+              <li><a href="#">Silk</a></li>
+              <li><a href="#">Straw</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="filter-group">
+            <h4 class="filter-title">Price</h4>
+            <ul class="filter-options">
+              <li><a href="#">Under $50</a></li>
+              <li><a href="#">$50 - $100</a></li>
+              <li><a href="#" class="active">$100 - $200</a></li>
+              <li><a href="#">$200 - $500</a></li>
+              <li><a href="#">Over $500</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 d-flex align-items-end">
+          <button class="filter-btn">Apply Filters</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="container">
+    <div class="product-grid-header">
+      <h2>Featured Accessories</h2>
+      <select class="sort-select">
+        <option>Sort by: Featured</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+        <option>Newest Arrivals</option>
+        <option>Best Sellers</option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="product-card">
+          <div class="product-badge">New</div>
+          <div class="product-img-container">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="product-img" alt="Leather Tote">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Minimalist Leather Tote</h5>
+            <span class="product-category">Bags</span>
+            <div>
+              <span class="product-price">$189.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="product-card">
+          <div class="product-badge">-25%</div>
+          <div class="product-img-container">
+            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="product-img" alt="Gold Necklace">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Delicate Gold Necklace</h5>
+            <span class="product-category">Jewelry</span>
+            <div>
+              <span class="product-price">$129.99</span>
+              <span class="product-old-price">$179.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="product-card">
+          <div class="product-img-container">
+            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="product-img" alt="Aviator Sunglasses">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Classic Aviator Sunglasses</h5>
+            <span class="product-category">Sunglasses</span>
+            <div>
+              <span class="product-price">$159.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="product-card">
+          <div class="product-badge">Best Seller</div>
+          <div class="product-img-container">
+            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="product-img" alt="Silk Scarf">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Printed Silk Scarf</h5>
+            <span class="product-category">Scarves</span>
+            <div>
+              <span class="product-price">$79.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="product-card">
+          <div class="product-img-container">
+            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="product-img" alt="Leather Watch">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Minimalist Leather Watch</h5>
+            <span class="product-category">Watches</span>
+            <div>
+              <span class="product-price">$199.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="product-card">
+          <div class="product-img-container">
+            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="product-img" alt="Straw Hat">
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Wide Brim Straw Hat</h5>
+            <span class="product-category">Hats</span>
+            <div>
+              <span class="product-price">$59.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+              <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Collections -->
+  <section class="container featured-collections">
+    <div class="section-heading">
+      <h2>Accessory Collections</h2>
+      <p>Curated sets to complete your look</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <a href="#" class="collection-card-sm">
+          <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="collection-img-sm" alt="Summer Essentials">
+          <div class="collection-overlay-sm">
+            <h3 class="collection-title-sm">Summer Essentials</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="collection-card-sm">
+          <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="collection-img-sm" alt="Luxury Metals">
+          <div class="collection-overlay-sm">
+            <h3 class="collection-title-sm">Luxury Metals</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="collection-card-sm">
+          <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="collection-img-sm" alt="Travel Must-Haves">
+          <div class="collection-overlay-sm">
+            <h3 class="collection-title-sm">Travel Must-Haves</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h3 class="newsletter-title">Complete Your Look</h3>
+        <p class="newsletter-subtitle">Subscribe for styling tips and exclusive accessory collections</p>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <a href="#" class="footer-logo">VogueVault</a>
+          <p class="footer-about">VogueVault redefines contemporary fashion with a focus on quality craftsmanship, sustainable materials, and timeless designs that transcend seasons.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Spring/Summer</a></li>
+            <li><a href="#">Fall/Winter</a></li>
+            <li><a href="#">Limited Edition</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-heading">Information</h4>
+          <ul class="footer-links">
+            <li><a href="/html/About.html">About Us</a></li>
+            <li><a href="/html/Sustainability.html">Sustainability</a></li>
+            <li><a href="/html/Shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="/html/Returns-Exchanges.html">Returns & Exchanges</a></li>
+            <li><a href="/html/Size-chart.html">Size Guide</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> 450 Fashion Avenue, New York, NY 10018</p>
+            <p><i class="fas fa-phone"></i> +1 (212) 555-0182</p>
+            <p><i class="fas fa-envelope"></i> hello@voguevault.com</p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 7PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 VogueVault. All rights reserved. <span style="opacity: 0.6;">|</span> <a href="#" style="color: rgba(255,255,255,0.6);">Privacy Policy</a> <span style="opacity: 0.6;">|</span> <a href="#" style="color: rgba(255,255,255,0.6);">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/accessories.js"></script>
+</body>
+</html>

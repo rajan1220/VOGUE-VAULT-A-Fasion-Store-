@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Size Guide | VogueVault</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a1a;
+      --secondary: #f5f5f5;
+      --accent: #e8c4a2;
+      --accent-dark: #d4a373;
+      --light: #ffffff;
+      --dark: #0a0a0a;
+      --text: #333333;
+      --text-light: #777777;
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--text);
+      background-color: var(--light);
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding-top: 70px;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Marcellus', serif;
+      letter-spacing: 0.5px;
+    }
+
+    /* Modern Minimalist Navbar */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary) !important;
+      letter-spacing: 1px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      padding: 5px 0;
+    }
+
+    .logo-text {
+      font-family: 'Marcellus', serif;
+      letter-spacing: 3px;
+    }
+
+    .logo-text-alt {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 8px;
+      margin-left: 2px;
+      color: var(--text-light);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text) !important;
+      margin: 0 15px;
+      padding: 8px 0 !important;
+      position: relative;
+      transition: var(--transition);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Search and Action Icons */
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .search-container {
+      position: relative;
+    }
+
+    .search-toggle {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 5px;
+    }
+
+    .search-toggle:hover {
+      color: var(--primary);
+    }
+
+    .search-expand {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%) scaleX(0);
+      transform-origin: right;
+      width: 250px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      padding: 5px 15px;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .search-container.active .search-expand {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .search-input {
+      border: none;
+      padding: 8px 15px;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .search-input:focus {
+      outline: none;
+    }
+
+    .search-close {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .action-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .action-icon {
+      color: var(--text);
+      font-size: 16px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .action-icon:hover {
+      color: var(--primary);
+    }
+
+    .icon-badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background-color: var(--accent);
+      color: var(--primary);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    /* Animated Hamburger Icon */
+    .navbar-toggler {
+      border: none;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar-toggler span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        padding: 20px 0;
+        background: white;
+        margin-top: 15px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      .navbar-actions {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        justify-content: center;
+      }
+      
+      .search-expand {
+        position: static;
+        transform: none;
+        opacity: 1;
+        width: 100%;
+        margin-top: 15px;
+        pointer-events: all;
+        box-shadow: none;
+      }
+      
+      .search-container.active .search-expand {
+        transform: none;
+      }
+      
+      .nav-link {
+        margin: 0;
+        padding: 10px 0 !important;
+      }
+    }
+    
+    /* Size Chart Page Styles */
+    .page-header {
+      padding: 100px 0 60px;
+      background-color: var(--secondary);
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .page-title {
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumb {
+      justify-content: center;
+      background: transparent;
+      padding: 0;
+    }
+    
+    .breadcrumb-item a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .breadcrumb-item a:hover {
+      color: var(--primary);
+    }
+    
+    .breadcrumb-item.active {
+      color: var(--primary);
+    }
+    
+    .breadcrumb-item+.breadcrumb-item::before {
+      content: '>';
+      color: var(--text-light);
+    }
+    
+    .size-chart-section {
+      margin-bottom: 80px;
+    }
+    
+    .size-tabs {
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+    
+    .size-tabs .nav-link {
+      padding: 12px 25px !important;
+      margin: 0 5px !important;
+      color: var(--text-light) !important;
+      border: none;
+      border-radius: 0;
+      position: relative;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+    
+    .size-tabs .nav-link.active {
+      color: var(--primary) !important;
+      background: transparent;
+    }
+    
+    .size-tabs .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+    }
+    
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    
+    .size-table th {
+      background-color: var(--secondary);
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .size-table td {
+      padding: 15px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .size-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .highlight-cell {
+      background-color: rgba(232, 196, 162, 0.1);
+      font-weight: 600;
+    }
+    
+    .measurement-guide {
+      background-color: var(--secondary);
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 60px;
+    }
+    
+    .measurement-title {
+      font-size: 24px;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .measurement-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .measurement-steps {
+      list-style-type: none;
+      padding: 0;
+      counter-reset: step-counter;
+    }
+    
+    .measurement-steps li {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 25px;
+      counter-increment: step-counter;
+    }
+    
+    .measurement-steps li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      background-color: var(--accent);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .measurement-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .measurement-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 100px 0 40px;
+      position: relative;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    }
+    
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .footer-logo::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-about {
+      margin-bottom: 25px;
+      opacity: 0.7;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    
+    .footer-social {
+      display: flex;
+      margin-top: 25px;
+      gap: 12px;
+    }
+    
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--accent);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-heading {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 15px;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+    
+    .footer-contact p {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+      font-size: 15px;
+    }
+    
+    .footer-contact i {
+      margin-right: 12px;
+      color: var(--accent);
+      font-size: 16px;
+      min-width: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 991px) {
+      .page-title {
+        font-size: 36px;
+      }
+      
+      .measurement-guide {
+        padding: 30px;
+      }
+      
+      .footer {
+        padding: 80px 0 30px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .page-header {
+        padding: 80px 0 50px;
+      }
+      
+      .page-title {
+        font-size: 32px;
+      }
+      
+      .size-tabs .nav-link {
+        padding: 10px 15px !important;
+        font-size: 13px;
+      }
+      
+      .size-table th, 
+      .size-table td {
+        padding: 12px 10px;
+        font-size: 14px;
+      }
+      
+      .measurement-guide {
+        padding: 25px;
+      }
+      
+      .measurement-title {
+        font-size: 22px;
+      }
+      
+      .footer {
+        padding: 60px 0 20px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .page-title {
+        font-size: 28px;
+      }
+      
+      .size-tabs .nav-link {
+        padding: 8px 10px !important;
+        margin: 0 2px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Modern Minimalist Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <!-- Logo with modern typography -->
+      <a class="navbar-brand" href="#">
+        <span class="logo-text">VOGUE</span>
+        <span class="logo-text-alt">VAULT</span>
+      </a>
+      
+      <!-- Mobile Toggle with animated hamburger -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Centered Navigation Links - No dropdowns -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Men.html">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Women.html">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/kids.html">Kids</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Accessories.html">Accessories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Collections.html">Collections</a>
+          </li>
+        </ul>
+        
+        <!-- Right-aligned Icons with minimalist design -->
+        <div class="navbar-actions">
+          <div class="search-container">
+            <button class="search-toggle">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-expand">
+              <input type="text" placeholder="Search VogueVault..." class="search-input">
+              <button class="search-close">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="action-icons">
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Account">
+              <i class="far fa-user"></i>
+            </a>
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wishlist">
+              <i class="far fa-heart"></i>
+              <span class="icon-badge">2</span>
+            </a>
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cart">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="icon-badge">3</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Size Guide</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Size Guide</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Size Chart Section -->
+  <section class="size-chart-section container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="nav size-tabs" id="sizeTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="women-tab" data-bs-toggle="tab" data-bs-target="#women" type="button" role="tab" aria-controls="women" aria-selected="true">Women</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="men-tab" data-bs-toggle="tab" data-bs-target="#men" type="button" role="tab" aria-controls="men" aria-selected="false">Men</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="kids-tab" data-bs-toggle="tab" data-bs-target="#kids" type="button" role="tab" aria-controls="kids" aria-selected="false">Kids</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="footwear-tab" data-bs-toggle="tab" data-bs-target="#footwear" type="button" role="tab" aria-controls="footwear" aria-selected="false">Footwear</button>
+          </li>
+        </ul>
+        
+        <div class="tab-content" id="sizeTabsContent">
+          <!-- Women's Sizes -->
+          <div class="tab-pane fade show active" id="women" role="tabpanel" aria-labelledby="women-tab">
+            <h3 class="mb-4">Women's Clothing Size Chart</h3>
+            <p class="text-muted mb-4">All measurements in inches. For best results, take your measurements wearing undergarments similar to those you'll wear with your new clothing.</p>
+            
+            <div class="table-responsive">
+              <table class="size-table">
+                <thead>
+                  <tr>
+                    <th>Size</th>
+                    <th>XXS</th>
+                    <th>XS</th>
+                    <th>S</th>
+                    <th>M</th>
+                    <th>L</th>
+                    <th>XL</th>
+                    <th>XXL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>US</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>4-6</td>
+                    <td>8-10</td>
+                    <td>12-14</td>
+                    <td>16-18</td>
+                    <td>20-22</td>
+                  </tr>
+                  <tr>
+                    <td>Bust</td>
+                    <td>31-32</td>
+                    <td>33-34</td>
+                    <td>35-36</td>
+                    <td>37-38</td>
+                    <td>39-40</td>
+                    <td>41-43</td>
+                    <td>44-46</td>
+                  </tr>
+                  <tr>
+                    <td>Waist</td>
+                    <td>23-24</td>
+                    <td>25-26</td>
+                    <td>27-28</td>
+                    <td>29-30</td>
+                    <td>31-32</td>
+                    <td>33-35</td>
+                    <td>36-38</td>
+                  </tr>
+                  <tr>
+                    <td>Hips</td>
+                    <td>33-34</td>
+                    <td>35-36</td>
+                    <td>37-38</td>
+                    <td>39-40</td>
+                    <td>41-42</td>
+                    <td>43-45</td>
+                    <td>46-48</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="row mt-5">
+              <div class="col-lg-6">
+                <h4 class="mb-4">International Size Conversion</h4>
+                <table class="size-table">
+                  <thead>
+                    <tr>
+                      <th>US</th>
+                      <th>UK</th>
+                      <th>EU</th>
+                      <th>AU</th>
+                      <th>JP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>0</td>
+                      <td>4</td>
+                      <td>32</td>
+                      <td>4</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>6</td>
+                      <td>34</td>
+                      <td>6</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>8</td>
+                      <td>36</td>
+                      <td>8</td>
+                      <td>9</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>10</td>
+                      <td>38</td>
+                      <td>10</td>
+                      <td>11</td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>12</td>
+                      <td>40</td>
+                      <td>12</td>
+                      <td>13</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-lg-6">
+                <div class="alert alert-light">
+                  <h5><i class="fas fa-info-circle me-2"></i>Fit Notes</h5>
+                  <p class="mb-0">Our clothing is designed with a modern fit. If you prefer a looser fit, we recommend sizing up. For dresses, please refer to your bust measurement as the primary size indicator.</p>
+                </div>
+                <div class="alert alert-light mt-3">
+                  <h5><i class="fas fa-ruler me-2"></i>Measurement Tips</h5>
+                  <p class="mb-0">Use a soft measuring tape and measure over bare skin or thin undergarments. Keep the tape snug but not tight.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Men's Sizes -->
+          <div class="tab-pane fade" id="men" role="tabpanel" aria-labelledby="men-tab">
+            <h3 class="mb-4">Men's Clothing Size Chart</h3>
+            <p class="text-muted mb-4">All measurements in inches. Measure around the fullest part of your body.</p>
+            
+            <div class="table-responsive">
+              <table class="size-table">
+                <thead>
+                  <tr>
+                    <th>Size</th>
+                    <th>XS</th>
+                    <th>S</th>
+                    <th>M</th>
+                    <th>L</th>
+                    <th>XL</th>
+                    <th>XXL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>US</td>
+                    <td>34</td>
+                    <td>36</td>
+                    <td>38-40</td>
+                    <td>42-44</td>
+                    <td>46-48</td>
+                    <td>50-52</td>
+                  </tr>
+                  <tr>
+                    <td>Chest</td>
+                    <td>34-35</td>
+                    <td>36-37</td>
+                    <td>38-40</td>
+                    <td>41-43</td>
+                    <td>44-46</td>
+                    <td>47-49</td>
+                  </tr>
+                  <tr>
+                    <td>Waist</td>
+                    <td>28-29</td>
+                    <td>30-31</td>
+                    <td>32-34</td>
+                    <td>35-37</td>
+                    <td>38-40</td>
+                    <td>41-43</td>
+                  </tr>
+                  <tr>
+                    <td>Hip</td>
+                    <td>34-35</td>
+                    <td>36-37</td>
+                    <td>38-40</td>
+                    <td>41-43</td>
+                    <td>44-46</td>
+                    <td>47-49</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="row mt-5">
+              <div class="col-lg-6">
+                <h4 class="mb-4">International Size Conversion</h4>
+                <table class="size-table">
+                  <thead>
+                    <tr>
+                      <th>US</th>
+                      <th>UK</th>
+                      <th>EU</th>
+                      <th>AU</th>
+                      <th>JP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>XS</td>
+                      <td>XS</td>
+                      <td>44</td>
+                      <td>XS</td>
+                      <td>S</td>
+                    </tr>
+                    <tr>
+                      <td>S</td>
+                      <td>S</td>
+                      <td>46</td>
+                      <td>S</td>
+                      <td>M</td>
+                    </tr>
+                    <tr>
+                      <td>M</td>
+                      <td>M</td>
+                      <td>48</td>
+                      <td>M</td>
+                      <td>L</td>
+                    </tr>
+                    <tr>
+                      <td>L</td>
+                      <td>L</td>
+                      <td>50</td>
+                      <td>L</td>
+                      <td>XL</td>
+                    </tr>
+                    <tr>
+                      <td>XL</td>
+                      <td>XL</td>
+                      <td>52</td>
+                      <td>XL</td>
+                      <td>XXL</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-lg-6">
+                <div class="alert alert-light">
+                  <h5><i class="fas fa-info-circle me-2"></i>Fit Notes</h5>
+                  <p class="mb-0">Our shirts have a tailored fit. For a more relaxed fit, consider sizing up. Jackets are sized to fit over a dress shirt.</p>
+                </div>
+                <div class="alert alert-light mt-3">
+                  <h5><i class="fas fa-ruler me-2"></i>Measurement Tips</h5>
+                  <p class="mb-0">Measure around the fullest part of your chest, keeping the tape parallel to the floor. For waist, measure at your natural waistline.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Kids Sizes -->
+          <div class="tab-pane fade" id="kids" role="tabpanel" aria-labelledby="kids-tab">
+            <h3 class="mb-4">Kids' Clothing Size Chart</h3>
+            <p class="text-muted mb-4">Sizes based on child's height and age. All measurements in inches.</p>
+            
+            <div class="table-responsive">
+              <table class="size-table">
+                <thead>
+                  <tr>
+                    <th>Size</th>
+                    <th>2T</th>
+                    <th>3T</th>
+                    <th>4T</th>
+                    <th>5-6</th>
+                    <th>7-8</th>
+                    <th>10-12</th>
+                    <th>14-16</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Height</td>
+                    <td>33-35</td>
+                    <td>35-38</td>
+                    <td>38-41</td>
+                    <td>41-47</td>
+                    <td>47-53</td>
+                    <td>53-59</td>
+                    <td>59-64</td>
+                  </tr>
+                  <tr>
+                    <td>Weight (lbs)</td>
+                    <td>30-32</td>
+                    <td>32-36</td>
+                    <td>36-42</td>
+                    <td>42-52</td>
+                    <td>52-65</td>
+                    <td>65-90</td>
+                    <td>90-120</td>
+                  </tr>
+                  <tr>
+                    <td>Chest</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23-24</td>
+                    <td>25-26</td>
+                    <td>27-29</td>
+                    <td>30-33</td>
+                  </tr>
+                  <tr>
+                    <td>Waist</td>
+                    <td>20</td>
+                    <td>20.5</td>
+                    <td>21</td>
+                    <td>21.5-22</td>
+                    <td>22-23</td>
+                    <td>23-25</td>
+                    <td>25-27</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="row mt-5">
+              <div class="col-lg-6">
+                <h4 class="mb-4">International Size Conversion</h4>
+                <table class="size-table">
+                  <thead>
+                    <tr>
+                      <th>US</th>
+                      <th>UK</th>
+                      <th>EU</th>
+                      <th>Height (cm)</th>
+                      <th>Age</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2T</td>
+                      <td>2</td>
+                      <td>86</td>
+                      <td>86-90</td>
+                      <td>2 years</td>
+                    </tr>
+                    <tr>
+                      <td>3T</td>
+                      <td>3</td>
+                      <td>92</td>
+                      <td>92-98</td>
+                      <td>3 years</td>
+                    </tr>
+                    <tr>
+                      <td>4T</td>
+                      <td>4</td>
+                      <td>98</td>
+                      <td>98-104</td>
+                      <td>4 years</td>
+                    </tr>
+                    <tr>
+                      <td>5-6</td>
+                      <td>5-6</td>
+                      <td>110</td>
+                      <td>104-116</td>
+                      <td>5-6 years</td>
+                    </tr>
+                    <tr>
+                      <td>7-8</td>
+                      <td>7-8</td>
+                      <td>122</td>
+                      <td>116-128</td>
+                      <td>7-8 years</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-lg-6">
+                <div class="alert alert-light">
+                  <h5><i class="fas fa-info-circle me-2"></i>Fit Notes</h5>
+                  <p class="mb-0">Our kids' clothing is designed with room to grow. If your child is between sizes or growing quickly, we recommend sizing up.</p>
+                </div>
+                <div class="alert alert-light mt-3">
+                  <h5><i class="fas fa-ruler me-2"></i>Measurement Tips</h5>
+                  <p class="mb-0">Have your child stand straight with arms at sides. Measure around the fullest part of the chest, keeping the tape snug but not tight.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Footwear Sizes -->
+          <div class="tab-pane fade" id="footwear" role="tabpanel" aria-labelledby="footwear-tab">
+            <h3 class="mb-4">Footwear Size Chart</h3>
+            <p class="text-muted mb-4">Measure your foot length to find your perfect size. All measurements in inches.</p>
+            
+            <div class="table-responsive">
+              <table class="size-table">
+                <thead>
+                  <tr>
+                    <th>US Women</th>
+                    <th>US Men</th>
+                    <th>UK</th>
+                    <th>EU</th>
+                    <th>JP</th>
+                    <th>Foot Length</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5</td>
+                    <td>-</td>
+                    <td>3</td>
+                    <td>35</td>
+                    <td>22</td>
+                    <td>8.5"</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>-</td>
+                    <td>4</td>
+                    <td>36</td>
+                    <td>23</td>
+                    <td>8.75"</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>-</td>
+                    <td>5</td>
+                    <td>37</td>
+                    <td>24</td>
+                    <td>9.25"</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>-</td>
+                    <td>6</td>
+                    <td>38</td>
+                    <td>25</td>
+                    <td>9.5"</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>-</td>
+                    <td>7</td>
+                    <td>39</td>
+                    <td>26</td>
+                    <td>9.75"</td>
+                  </tr>
+                  <tr>
+                    <td>-</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>40</td>
+                    <td>25.5</td>
+                    <td>9.75"</td>
+                  </tr>
+                  <tr>
+                    <td>-</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>41</td>
+                    <td>26.5</td>
+                    <td>10.25"</td>
+                  </tr>
+                  <tr>
+                    <td>-</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>42</td>
+                    <td>27.5</td>
+                    <td>10.5"</td>
+                  </tr>
+                  <tr>
+                    <td>-</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>43</td>
+                    <td>28</td>
+                    <td>10.75"</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="row mt-5">
+              <div class="col-lg-6">
+                <div class="alert alert-light">
+                  <h5><i class="fas fa-info-circle me-2"></i>Fit Notes</h5>
+                  <p class="mb-0">Our shoes typically fit true to size. If you're between sizes or have wide feet, we recommend sizing up. For athletic shoes, consider going up half a size.</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="alert alert-light">
+                  <h5><i class="fas fa-ruler me-2"></i>How to Measure Your Foot</h5>
+                  <p class="mb-0">Stand on a piece of paper and mark the longest part of your foot (heel to toe). Measure this distance in inches to find your size.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Measurement Guide -->
+    <div class="measurement-guide">
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="measurement-title">How to Measure Yourself</h3>
+          <ul class="measurement-steps">
+            <li>
+              <h5>Chest/Bust</h5>
+              <p>Measure around the fullest part of your chest/bust, keeping the tape measure parallel to the floor and under your arms.</p>
+            </li>
+            <li>
+              <h5>Waist</h5>
+              <p>Measure around the narrowest part of your natural waist, typically just above your belly button.</p>
+            </li>
+            <li>
+              <h5>Hips</h5>
+              <p>Stand with feet together and measure around the fullest part of your hips, about 8 inches below your waist.</p>
+            </li>
+            <li>
+              <h5>Inseam</h5>
+              <p>For pants, measure from the crotch to the bottom of your ankle along the inside of your leg.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="measurement-image">
+            <img src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Measurement Guide" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <a href="#" class="footer-logo">VogueVault</a>
+          <p class="footer-about">VogueVault redefines contemporary fashion with a focus on quality craftsmanship, sustainable materials, and timeless designs that transcend seasons.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Spring/Summer</a></li>
+            <li><a href="#">Fall/Winter</a></li>
+            <li><a href="#">Limited Edition</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-heading">Information</h4>
+          <ul class="footer-links">
+            <li><a href="/html/About.html">About Us</a></li>
+            <li><a href="/html/Sustainability.html">Sustainability</a></li>
+            <li><a href="/html/Shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="/html/Returns-Exchanges.html">Returns & Exchanges</a></li>
+            <li><a href="/html/Size-chart.html">Size Guide</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> 450 Fashion Avenue, New York, NY 10018</p>
+            <p><i class="fas fa-phone"></i> +1 (212) 555-0182</p>
+            <p><i class="fas fa-envelope"></i> hello@voguevault.com</p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 7PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 VogueVault. All rights reserved. <span style="opacity: 0.6;">|</span> <a href="#" style="color: rgba(255,255,255,0.6);">Privacy Policy</a> <span style="opacity: 0.6;">|</span> <a href="#" style="color: rgba(255,255,255,0.6);">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+   
+  </script>
+</body>
+</html>

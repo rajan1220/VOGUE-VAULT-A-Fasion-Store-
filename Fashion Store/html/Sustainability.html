@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainability | VogueVault</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a1a;
+      --secondary: #f5f5f5;
+      --accent: #e8c4a2;
+      --accent-dark: #d4a373;
+      --light: #ffffff;
+      --dark: #0a0a0a;
+      --text: #333333;
+      --text-light: #777777;
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--text);
+      background-color: var(--light);
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding-top: 70px;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Marcellus', serif;
+      letter-spacing: 0.5px;
+    }
+
+    /* Modern Minimalist Navbar */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary) !important;
+      letter-spacing: 1px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      padding: 5px 0;
+    }
+
+    .logo-text {
+      font-family: 'Marcellus', serif;
+      letter-spacing: 3px;
+    }
+
+    .logo-text-alt {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 8px;
+      margin-left: 2px;
+      color: var(--text-light);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text) !important;
+      margin: 0 15px;
+      padding: 8px 0 !important;
+      position: relative;
+      transition: var(--transition);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Search and Action Icons */
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .search-container {
+      position: relative;
+    }
+
+    .search-toggle {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 5px;
+    }
+
+    .search-toggle:hover {
+      color: var(--primary);
+    }
+
+    .search-expand {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%) scaleX(0);
+      transform-origin: right;
+      width: 250px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      padding: 5px 15px;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .search-container.active .search-expand {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .search-input {
+      border: none;
+      padding: 8px 15px;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .search-input:focus {
+      outline: none;
+    }
+
+    .search-close {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .action-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .action-icon {
+      color: var(--text);
+      font-size: 16px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .action-icon:hover {
+      color: var(--primary);
+    }
+
+    .icon-badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background-color: var(--accent);
+      color: var(--primary);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    /* Animated Hamburger Icon */
+    .navbar-toggler {
+      border: none;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .navbar-toggler span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        padding: 20px 0;
+        background: white;
+        margin-top: 15px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      .navbar-actions {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        justify-content: center;
+      }
+      
+      .search-expand {
+        position: static;
+        transform: none;
+        opacity: 1;
+        width: 100%;
+        margin-top: 15px;
+        pointer-events: all;
+        box-shadow: none;
+      }
+      
+      .search-container.active .search-expand {
+        transform: none;
+      }
+      
+      .nav-link {
+        margin: 0;
+        padding: 10px 0 !important;
+      }
+    }
+    
+    /* Sustainability Page Styles */
+    .page-header {
+      padding: 100px 0 60px;
+      background-color: var(--secondary);
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .page-title {
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumb {
+      justify-content: center;
+      background: transparent;
+      padding: 0;
+    }
+    
+    .breadcrumb-item a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .breadcrumb-item a:hover {
+      color: var(--primary);
+    }
+    
+    .breadcrumb-item.active {
+      color: var(--primary);
+    }
+    
+    .breadcrumb-item+.breadcrumb-item::before {
+      content: '>';
+      color: var(--text-light);
+    }
+    
+    .commitment-section {
+      margin-bottom: 80px;
+    }
+    
+    .commitment-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+      transition: var(--transition);
+      height: 100%;
+    }
+    
+    .commitment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+    
+    .commitment-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+    
+    .commitment-title {
+      font-size: 22px;
+      margin-bottom: 15px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .commitment-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .impact-section {
+      background-color: var(--primary);
+      color: white;
+      padding: 100px 0;
+      margin: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .impact-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .impact-section::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .impact-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .impact-title {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    
+    .impact-text {
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+    
+    .impact-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    
+    .impact-stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 48px;
+      font-weight: 300;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    
+    .stat-label {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+    
+    .materials-section {
+      margin-bottom: 80px;
+    }
+    
+    .material-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+      margin-bottom: 30px;
+      transition: var(--transition);
+    }
+    
+    .material-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+    
+    .material-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .material-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .material-card:hover .material-image img {
+      transform: scale(1.05);
+    }
+    
+    .material-body {
+      padding: 25px;
+      background-color: white;
+    }
+    
+    .material-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .material-text {
+      color: var(--text-light);
+      margin-bottom: 15px;
+    }
+    
+    .material-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      background-color: var(--accent);
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .process-section {
+      margin-bottom: 80px;
+    }
+    
+    .process-steps {
+      list-style-type: none;
+      padding: 0;
+      counter-reset: step-counter;
+    }
+    
+    .process-steps li {
+      position: relative;
+      padding-left: 80px;
+      margin-bottom: 40px;
+      counter-increment: step-counter;
+    }
+    
+    .process-steps li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 24px;
+    }
+    
+    .process-title {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    
+    .process-text {
+      color: var(--text-light);
+    }
+    
+    .faq-section {
+      margin-bottom: 80px;
+    }
+    
+    .faq-accordion .accordion-item {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+    }
+    
+    .faq-accordion .accordion-button {
+      background-color: white;
+      font-weight: 600;
+      padding: 20px 25px;
+      box-shadow: none;
+    }
+    
+    .faq-accordion .accordion-button:not(.collapsed) {
+      background-color: white;
+      color: var(--primary);
+    }
+    
+    .faq-accordion .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231a1a1a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+    
+    .faq-accordion .accordion-body {
+      padding: 0 25px 25px;
+      color: var(--text-light);
+    }
+    
+    .cta-section {
+      background-color: var(--primary);
+      color: white;
+      padding: 80px 0;
+      border-radius: 12px;
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    
+    .cta-text {
+      opacity: 0.8;
+      margin-bottom: 30px;
+    }
+    
+    .btn-cta {
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: none;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    
+    .btn-cta:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 100px 0 40px;
+      position: relative;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    }
+    
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .footer-logo::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-about {
+      margin-bottom: 25px;
+      opacity: 0.7;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    
+    .footer-social {
+      display: flex;
+      margin-top: 25px;
+      gap: 12px;
+    }
+    
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--accent);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-heading {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 15px;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+    
+    .footer-contact p {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+      font-size: 15px;
+    }
+    
+    .footer-contact i {
+      margin-right: 12px;
+      color: var(--accent);
+      font-size: 16px;
+      min-width: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 991px) {
+      .page-title {
+        font-size: 36px;
+      }
+      
+      .commitment-card {
+        padding: 30px;
+      }
+      
+      .impact-title {
+        font-size: 28px;
+      }
+      
+      .process-steps li {
+        padding-left: 60px;
+      }
+      
+      .process-steps li::before {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+      
+      .footer {
+        padding: 80px 0 30px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .page-header {
+        padding: 80px 0 50px;
+      }
+      
+      .page-title {
+        font-size: 32px;
+      }
+      
+      .commitment-title {
+        font-size: 20px;
+      }
+      
+      .impact-section {
+        padding: 80px 0;
+      }
+      
+      .impact-stats {
+        gap: 20px;
+      }
+      
+      .stat-number {
+        font-size: 36px;
+      }
+      
+      .process-steps li {
+        padding-left: 50px;
+        margin-bottom: 30px;
+      }
+      
+      .process-steps li::before {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+      
+      .footer {
+        padding: 60px 0 20px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .page-title {
+        font-size: 28px;
+      }
+      
+      .commitment-card {
+        padding: 25px;
+      }
+      
+      .impact-stats {
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Modern Minimalist Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <!-- Logo with modern typography -->
+      <a class="navbar-brand" href="#">
+        <span class="logo-text">VOGUE</span>
+        <span class="logo-text-alt">VAULT</span>
+      </a>
+      
+      <!-- Mobile Toggle with animated hamburger -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Centered Navigation Links - No dropdowns -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Men.html">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Women.html">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/kids.html">Kids</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Accessories.html">Accessories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/html/Collections.html">Collections</a>
+          </li>
+        </ul>
+        
+        <!-- Right-aligned Icons with minimalist design -->
+        <div class="navbar-actions">
+          <div class="search-container">
+            <button class="search-toggle">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-expand">
+              <input type="text" placeholder="Search VogueVault..." class="search-input">
+              <button class="search-close">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="action-icons">
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Account">
+              <i class="far fa-user"></i>
+            </a>
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wishlist">
+              <i class="far fa-heart"></i>
+              <span class="icon-badge">2</span>
+            </a>
+            <a href="#" class="action-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cart">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="icon-badge">3</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Sustainability</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Sustainability</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Commitment Section -->
+  <section class="commitment-section container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="mb-4">Our Sustainable Commitments</h2>
+        <p class="text-muted mb-5">At VogueVault, we believe fashion should be beautiful inside and out. Our sustainability initiatives are woven into every aspect of our business, from material sourcing to manufacturing and packaging.</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="commitment-card">
+          <div class="commitment-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="commitment-title">Eco-Friendly Materials</h3>
+          <p>85% of our collections now use sustainable fabrics including organic cotton, recycled polyester, Tencel™, and hemp. We're working toward 100% by 2025.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="commitment-card">
+          <div class="commitment-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <h3 class="commitment-title">Water Conservation</h3>
+          <p>Our innovative dyeing processes use 80% less water than conventional methods, and we recycle 90% of the water we do use in production.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="commitment-card">
+          <div class="commitment-icon">
+            <i class="fas fa-solar-panel"></i>
+          </div>
+          <h3 class="commitment-title">Renewable Energy</h3>
+          <p>All our manufacturing facilities run on 100% renewable energy, reducing our carbon footprint by 65% since 2018.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="commitment-card">
+          <div class="commitment-icon">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <h3 class="commitment-title">Circular Fashion</h3>
+          <p>Our garment recycling program has diverted over 25,000 lbs of clothing from landfills, with items either resold, repurposed, or recycled.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="commitment-card">
+          <div class="commitment-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3 class="commitment-title">Ethical Production</h3>
+          <p>We maintain direct relationships with all our suppliers, ensuring fair wages and safe working conditions across our supply chain.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="commitment-card">
+          <div class="commitment-icon">
+            <i class="fas fa-box-open"></i>
+          </div>
+          <h3 class="commitment-title">Sustainable Packaging</h3>
+          <p>All our packaging is 100% recyclable and biodegradable, using FSC-certified paper and plant-based inks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <div class="container">
+      <div class="impact-content">
+        <h2 class="impact-title">Our Environmental Impact</h2>
+        <p class="impact-text">Since implementing our sustainability initiatives in 2018, we've made measurable progress in reducing our environmental footprint while continuing to deliver high-quality fashion.</p>
+        
+        <div class="impact-stats">
+          <div class="impact-stat">
+            <div class="stat-number">65%</div>
+            <div class="stat-label">Reduction in carbon emissions</div>
+          </div>
+          <div class="impact-stat">
+            <div class="stat-number">25M</div>
+            <div class="stat-label">Gallons of water saved annually</div>
+          </div>
+          <div class="impact-stat">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Ethical suppliers partnered with</div>
+          </div>
+          <div class="impact-stat">
+            <div class="stat-number">85%</div>
+            <div class="stat-label">Sustainable materials used</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Materials Section -->
+  <section class="materials-section container">
+    <h2 class="mb-4">Our Sustainable Materials</h2>
+    <p class="text-muted mb-5">We carefully select materials that minimize environmental impact without compromising on quality or style.</p>
+    
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="material-card">
+          <div class="material-image">
+            <img src="https://images.unsplash.com/photo-1614179689702-355944cd0918?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Organic Cotton">
+          </div>
+          <div class="material-body">
+            <h3 class="material-title">Organic Cotton</h3>
+            <p class="material-text">Grown without harmful pesticides using 71% less water than conventional cotton.</p>
+            <span class="material-badge">Used in 45% of products</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="material-card">
+          <div class="material-image">
+            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Recycled Polyester">
+          </div>
+          <div class="material-body">
+            <h3 class="material-title">Recycled Polyester</h3>
+            <p class="material-text">Made from post-consumer plastic bottles, reducing plastic waste in oceans.</p>
+            <span class="material-badge">Used in 30% of products</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="material-card">
+          <div class="material-image">
+            <img src="https://images.unsplash.com/photo-1620830959868-9e8382e97a75?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Tencel™ Lyocell">
+          </div>
+          <div class="material-body">
+            <h3 class="material-title">Tencel™ Lyocell</h3>
+            <p class="material-text">Sustainable wood pulp fabric produced in a closed-loop process that recycles 99% of solvents.</p>
+            <span class="material-badge">Used in 15% of products</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="material-card">
+          <div class="material-image">
+            <img src="https://images.unsplash.com/photo-1614179689702-355944cd0918?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Hemp">
+          </div>
+          <div class="material-body">
+            <h3 class="material-title">Hemp</h3>
+            <p class="material-text">Naturally pest-resistant, requires no pesticides, and enriches the soil where it's grown.</p>
+            <span class="material-badge">Used in 10% of products</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section container">
+    <h2 class="mb-4">Our Sustainable Production Process</h2>
+    <p class="text-muted mb-5">Every VogueVault garment undergoes a carefully designed production process that prioritizes environmental responsibility at each stage.</p>
+    
+    <ul class="process-steps">
+      <li>
+        <h3 class="process-title">Material Sourcing</h3>
+        <p class="process-text">We partner with certified suppliers who share our commitment to sustainable agriculture and responsible material production. All materials are traceable to their origin.</p>
+      </li>
+      <li>
+        <h3 class="process-title">Eco-Friendly Dyeing</h3>
+        <p class="process-text">Using innovative waterless dye technology and natural dyes, we achieve vibrant colors without toxic chemicals or water waste.</p>
+      </li>
+      <li>
+        <h3 class="process-title">Ethical Manufacturing</h3>
+        <p class="process-text">Our partner factories are powered by renewable energy and maintain fair labor practices certified by the Fair Wear Foundation.</p>
+      </li>
+      <li>
+        <h3 class="process-title">Quality Assurance</h3>
+        <p class="process-text">Each garment is individually inspected to ensure longevity, reducing the need for replacements and minimizing waste.</p>
+      </li>
+      <li>
+        <h3 class="process-title">Sustainable Packaging</h3>
+        <p class="process-text">Products are shipped in recycled and biodegradable packaging with carbon-neutral shipping options.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section container">
+    <h2 class="mb-4">Sustainability FAQs</h2>
+    <p class="text-muted mb-5">Answers to common questions about our sustainability practices.</p>
+    
+    <div class="faq-accordion accordion" id="sustainabilityFaq">
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            How do you ensure your suppliers are truly sustainable?
+          </button>
+        </h3>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#sustainabilityFaq">
+          <div class="accordion-body">
+            We conduct rigorous audits of all suppliers through third-party organizations like the Global Organic Textile Standard (GOTS) and Fair Trade Certified. Our team also makes regular visits to production facilities to verify working conditions and environmental practices. We maintain long-term relationships with our suppliers to ensure continuous improvement.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Are your products more expensive because of sustainable practices?
+          </button>
+        </h3>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#sustainabilityFaq">
+          <div class="accordion-body">
+            While sustainable materials and ethical labor do cost more than conventional alternatives, we've optimized our operations to keep prices accessible. We believe the slightly higher cost reflects the true price of fashion that doesn't exploit people or the planet. Plus, our high-quality garments last longer, providing better value over time.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            What happens to clothes at the end of their life?
+          </button>
+        </h3>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#sustainabilityFaq">
+          <div class="accordion-body">
+            We offer a garment recycling program where customers can return worn-out VogueVault items. These are either repaired and resold through our vintage program, upcycled into new products, or responsibly recycled into raw materials. For non-VogueVault items, we partner with textile recycling organizations to keep clothing out of landfills.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            How do you offset your carbon footprint?
+          </button>
+        </h3>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#sustainabilityFaq">
+          <div class="accordion-body">
+            We measure our carbon emissions annually and invest in verified carbon offset projects including reforestation initiatives and renewable energy development. However, our priority is reducing emissions at the source through renewable energy use, efficient logistics, and sustainable material choices.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            What are your future sustainability goals?
+          </button>
+        </h3>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#sustainabilityFaq">
+          <div class="accordion-body">
+            By 2025, we aim to: 1) Use 100% sustainable materials in all collections, 2) Achieve zero-waste manufacturing, 3) Transition to 100% plastic-free packaging, and 4) Become a carbon-positive company. We publish annual sustainability reports to track our progress toward these goals.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="container">
+    <div class="cta-section">
+      <div class="cta-content">
+        <h3 class="cta-title">Join Our Sustainable Fashion Movement</h3>
+        <p class="cta-text">Every purchase supports ethical production and environmental responsibility.</p>
+        <button class="btn btn-cta">Shop Sustainable Styles</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <a href="#" class="footer-logo">VogueVault</a>
+          <p class="footer-about">VogueVault redefines contemporary fashion with a focus on quality craftsmanship, sustainable materials, and timeless designs that transcend seasons.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Spring/Summer</a></li>
+            <li><a href="#">Fall/Winter</a></li>
+            <li><a href="#">Limited Edition</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <h4 class="footer-heading">Information</h4>
+          <ul class="footer-links">
+            <li><a href="/html/About.html">About Us</a></li>
+            <li><a href="/html/Sustainability.html">Sustainability</a></li>
+            <li><a href="/html/Shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="/html/Returns-Exchanges.html">Returns & Exchanges</a></li>
+            <li><a href="/html/Size-chart.html">Size Guide</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> 450 Fashion Avenue, New York, NY 10018</p>
+            <p><i class="fas fa-phone"></i> +1 (212) 555-0182</p>
+            <p><i class="fas fa-envelope"></i> hello@voguevault.com</p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 7PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 VogueVault. All rights reserved. <span style="opacity: 0.6;">|</span> <a href="#" style="color: rgba(255,255,255,0.6);">Privacy Policy</a> <span style="opacity: 0.6;">|</span> <a href="#" style="color: rgba(255,255,255,0.6);">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+  </script>
+</body>
+</html>
